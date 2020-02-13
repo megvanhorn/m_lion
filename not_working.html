@@ -1,0 +1,90 @@
+<html>
+ <head>
+     <style>
+             body{
+            background-image: url(https://media1.fdncms.com/memphisflyer/imager/facing-down-a-mountain-lion/u/original/3485947/1376597448-mountain-lion-biology-and-behavior.jpg?width=1900&height=950&transform=DownFill)
+        }
+     </style>
+ <title>Leaflet Map About ...</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+ integrity="sha512-
+puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrD
+h+drA=="
+ crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+ integrity="sha512-
+QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw
+5lwrg=="
+ crossorigin=""></script>
+ </head>
+ <h2>
+ Mountain Lion Ranges
+ </h2>
+ 
+ <div id="megmap"></div>
+ <style>
+    #megmap{ width: 1000px; height: 550px; }
+
+    body{
+            background-image: url(https://media1.fdncms.com/memphisflyer/imager/facing-down-a-mountain-lion/u/original/3485947/1376597448-mountain-lion-biology-and-behavior.jpg?width=1900&height=950&transform=DownFill)
+        }
+    
+   </style>
+   <script src = "data/Mountain_Lion_Range__CWHR_M165_[ds793].geojson"></script>
+<script>
+L.geoJSON(lion).addTo(map)
+    var map = L.map('megmap').setView([40.5865, -122.3916800], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a> href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map); // I have tried probably 10 other base maps but the code has not worked for any of them so I have decided to stick with open street map because it shows up.
+        //var lionIcon = L.icon({ 
+        //iconUrl: 'data/lion.png',
+        //iconSize: [30,30],
+       // popupAnchor: [0,0]
+        //});
+        var mlion = fetchJSON('data/Mountain_Lion_Range__CWHR_M165_[ds793].geojson')
+            .then(function(mlion) { return mlion })
+
+            function fetchJSON(url) {
+                return fetch(url)
+                .then(function(response) {
+                return response.json();
+                });
+            }
+        var src;
+        var customPopup = "Lion <br/><img src='https://ya-webdesign.com/image/mountain-lion-png/1985309.html' width='75px'/>";
+        L.geoJSON(lion, {
+        pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: customPopup});}})
+        .bindPopup("<img src =" + customPopup + "'/>'")
+        .addTo(map); 
+        L.marker([40.5865, -122.3916800]).addTo(map)
+ .bindPopup('This map looks at the range of mountain lions across California.') // I have really tried to add a mountain lion image but it isn't working :(
+ .openPopup();
+ var popup = L.popup();
+
+//var photoImg = '<img src="https://ya-webdesign.com/image/mountain-lion-png/1985309.html" height="150px" width="150px"/>';
+
+//function onMapClick(e) {
+    //popup
+      //  .setLatLng(e.latlng)
+        //.setContent("<center>My Photo </center>" + "</br>"+ photoImg)
+        //.openOn(mymap);
+//}
+
+//mymap.on('click', onMapClick); // AHHHH I can't get a mountain lion image to work anywhere, I'm very sad.
+ //var picURL = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg';
+
+//shelter1.bindPopup("<img src=" + picURL2 + "/>");
+
+
+//L.marker(center).addTo(map);
+//L.marker([40.5865, -122.3916800]).addTo(map);
+
+//var imageUrl = 'https://ya-webdesign.com/image/mountain-lion-png/1985309.html',
+//imageBounds = [center, [40.5865, -122.3916800]];
+
+//L.imageOverlay(imageUrl, imageBounds).addTo(map);
+</script>
+
+</html>
