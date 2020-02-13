@@ -20,6 +20,7 @@ QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Q
  <h2>
  Mountain Lion Ranges
  </h2>
+ 
  <div id="megmap"></div>
  <style>
     #megmap{ width: 1000px; height: 550px; }
@@ -62,16 +63,16 @@ L.geoJSON(lion).addTo(map)
  .openPopup();
  var popup = L.popup();
 
-var photoImg = '<img src="https://ya-webdesign.com/image/mountain-lion-png/1985309.html" height="150px" width="150px"/>';
+//var photoImg = '<img src="https://ya-webdesign.com/image/mountain-lion-png/1985309.html" height="150px" width="150px"/>';
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("<center>My Photo </center>" + "</br>"+ photoImg)
-        .openOn(mymap);
-}
+//function onMapClick(e) {
+    //popup
+      //  .setLatLng(e.latlng)
+        //.setContent("<center>My Photo </center>" + "</br>"+ photoImg)
+        //.openOn(mymap);
+//}
 
-mymap.on('click', onMapClick); // AHHHH I can't get a mountain lion image to work anywhere, I'm very sad.
+//mymap.on('click', onMapClick); // AHHHH I can't get a mountain lion image to work anywhere, I'm very sad.
  //var picURL = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg';
 
 //shelter1.bindPopup("<img src=" + picURL2 + "/>");
@@ -85,12 +86,5 @@ mymap.on('click', onMapClick); // AHHHH I can't get a mountain lion image to wor
 
 //L.imageOverlay(imageUrl, imageBounds).addTo(map);
 </script>
- <div style="background-image: url('https://ya-webdesign.com/image/mountain-lion-png/1985309.html');"> 
-    Meg Van Horn<br>
-    </div>
-
-    <img src="data/lion.png" alt="Lion" width="20"
-    height="20">
-
 
 </html>
